@@ -37,7 +37,7 @@
   var FOOT_HTML = [
     '<div class="foot-inner">',
     '  <p class="foot-brand">Keeper <span>·</span> a lighthouse, fifteen lines, five ideas and one stubborn machine</p>',
-    '  <p class="foot-note">Project 1 · Web Technologies, Autumn 2026 — LIN Jiacan · Group 2 · 2025004010</p>',
+    '  <p class="foot-note">Project 1 · Web Technologies, Autumn 2026 — LIN Jiacan · 2025010041</p>',
     '  <p class="foot-note">Written by hand: HTML, CSS and JavaScript, no framework. The drawing and the icons were drawn by hand too.</p>',
     '</div>'
   ].join('\n');
