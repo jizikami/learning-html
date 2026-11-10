@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keeper of the Light · a small site about lighthouses</title>
+<meta name="description" content="Keeper is a small site about lighthouses: what a keeper did all night, how a light is told apart from every other light at sea, sixteen lines worth keeping, five things still to build, and one machine that switches itself off.">
+<meta name="theme-color" content="#0a0e17">
+<link rel="icon" href="favicon-32.png" sizes="32x32">
+<link rel="icon" href="favicon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="site-nav"></div>
+
+<main>
+
+  <!-- ============ Hero: the drawing, and what this site is ============ -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+
+      <div class="hero-copy">
+        <p class="eyebrow">Keeper · a small site about lighthouses</p>
+        <h1>Somebody has<br>to stay <span class="hl">awake</span></h1>
+        <p class="lede">
+          A lighthouse is a lamp, a lens and a promise: that on the worst night of
+          the year there will still be one light on, in one known place, saying
+          the same thing it said last night. This site is about the light, the
+          people who kept it, and the long hours in between — in sixteen quotes,
+          five ideas, one drawn tower, and one machine that refuses to stay
+          switched on.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-solid" href="quotes.html">Sixteen lines</a>
+          <a class="btn btn-ghost" href="machine.html">Meet the machine</a>
+        </div>
+
+        <ul class="chips" aria-label="A few numbers from the tower">
+          <li>flash every 15 s</li>
+          <li>seen from 20 miles</li>
+          <li>lens: 920 kg</li>
+          <li>wick trimmed every 4 h</li>
+        </ul>
+      </div>
+
+      <figure class="hero-art">
+        <svg viewBox="0 0 520 420" role="img" aria-label="Drawing: a lighthouse on a rock at night. Its lamp glows, two beams sweep out over a dark sea, and there are stars above.">
+          <defs>
+            <radialGradient id="halo">
+              <stop offset="0" stop-color="#ffb054" stop-opacity=".13"/>
+              <stop offset=".6" stop-color="#ffb054" stop-opacity=".05"/>
+              <stop offset="1" stop-color="#ffb054" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="glow">
+              <stop offset="0" stop-color="#fff6e4" stop-opacity=".95"/>
+              <stop offset=".35" stop-color="#ffc178" stop-opacity=".45"/>
+              <stop offset="1" stop-color="#ffb054" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="beamR" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#ffe0b0" stop-opacity=".5"/>
+              <stop offset=".4" stop-color="#ffb054" stop-opacity=".16"/>
+              <stop offset="1" stop-color="#ffb054" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="beamL" x1="1" y1="0" x2="0" y2="0">
+              <stop offset="0" stop-color="#ffe0b0" stop-opacity=".5"/>
+              <stop offset=".4" stop-color="#ffb054" stop-opacity=".16"/>
+              <stop offset="1" stop-color="#ffb054" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="seaGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#0d1726"/>
+              <stop offset="1" stop-color="#070c15"/>
+            </linearGradient>
+            <filter id="soften" x="-20%" y="-40%" width="140%" height="180%">
+              <feGaussianBlur stdDeviation="5"/>
+            </filter>
+            <clipPath id="towerClip">              <path d="M226 130 H286 L302 340 H210 Z"/>
+            </clipPath>
+          </defs>
+
+          <circle cx="256" cy="108" r="196" fill="url(#halo)"/>
+
+          <!-- stars -->
+          <circle class="star blink"    cx="62"  cy="74"  r="2.6"/>
+          <circle class="star dim"      cx="104" cy="128" r="2"/>
+          <circle class="star"          cx="150" cy="58"  r="2.2"/>
+          <circle class="star blink d2" cx="196" cy="96"  r="2.6"/>
+          <circle class="star dim"      cx="334" cy="52"  r="2"/>
+          <circle class="star blink d3" cx="392" cy="98"  r="2.4"/>
+          <circle class="star"          cx="446" cy="62"  r="2.2"/>
+          <circle class="star dim"      cx="470" cy="142" r="2.6"/>
+          <circle class="star"          cx="302" cy="152" r="2"/>
+          <circle class="star dim"      cx="140" cy="176" r="2"/>
+          <circle class="star blink d2" cx="424" cy="188" r="2.2"/>
+          <circle class="star dim"      cx="356" cy="214" r="2"/>
+
+          <!-- the beams, sweeping -->
+          <g class="lh-lamp">
+            <polygon class="lh-beam" fill="url(#beamR)" points="256,104 540,52 540,156"/>
+            <polygon class="lh-beam" fill="url(#beamL)" points="256,104 -20,52 -20,156"/>
+          </g>
+
+          <!-- the sea -->
+          <line class="lh-horizon" x1="0" y1="338" x2="520" y2="338"/>
+          <path class="wave"    d="M24 362q22-7 44 0t44 0"/>
+          <path class="wave s2" d="M300 360q22-7 44 0t44 0"/>
+          <path class="wave"    d="M136 384q22-7 44 0t44 0"/>
+          <path class="wave"    d="M392 386q22-7 44 0t44 0"/>
+          <path class="wave s2" d="M48 404q22-7 44 0t44 0"/>
+          <path class="wave"    d="M266 406q22-7 44 0t44 0"/>
+
+          <!-- the rock it stands on -->
+          <path class="lh-rock"    d="M104 360q34-30 96-32h124q62 2 96 32z"/>
+          <path class="lh-rock hi" d="M150 348q28-18 58-18h96q30 0 58 18z"/>
+
+          <!-- the tower -->
+          <path class="lh-tower" d="M226 130 H286 L302 344 H210 Z"/>
+          <g clip-path="url(#towerClip)">
+            <rect class="lh-band" x="200" y="170" width="120" height="12"/>
+            <rect class="lh-band" x="200" y="216" width="120" height="12"/>
+            <rect class="lh-band" x="200" y="262" width="120" height="12"/>
+            <rect class="lh-band" x="200" y="308" width="120" height="12"/>
+          </g>
+          <path class="lh-door" d="M246 344v-26a10 10 0 0 1 20 0v26z"/>
+
+          <!-- gallery, lantern and roof -->
+          <rect class="lh-deck" x="210" y="116" width="92" height="13" rx="3"/>
+          <circle cx="256" cy="100" r="34" fill="url(#glow)"/>
+          <rect class="lh-glass" x="236" y="84" width="40" height="32" rx="3"/>
+          <line class="lh-frame" x1="256" y1="84" x2="256" y2="116"/>
+          <line class="lh-frame" x1="236" y1="100" x2="276" y2="100"/>
+          <circle class="lh-bulb" cx="256" cy="100" r="6"/>
+          <path class="lh-roof" d="M230 84h52l-26-26z"/>
+          <circle class="lh-bulb" cx="256" cy="54" r="3.2"/>
+        </svg>
+      </figure>
+
+    </div>
+  </section>
+
+  <!-- ============ Overview: what is in the site ============ -->
+  <section class="section" id="overview">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="eyebrow">What is in here</p>
+        <h2>Four pages, one lamp</h2>
+        <p class="sub">
+          Start anywhere. The bar at the top of every page is the same bar —
+          the page you are standing on is the one that is marked.
+        </p>
+      </header>
+
+      <div class="cards">
+
+        <a class="card card-link" href="index.html">
+          <span class="card-no">01</span>
+          <h3>Home</h3>
+          <p>The tower, the numbers, what a keeper did between 21:00 and 02:00,
+             and how every light at sea says its own name.</p>
+          <span class="card-tag">this page</span>
+        </a>
+
+        <a class="card card-link" href="quotes.html">
+          <span class="card-no">02</span>
+          <h3>Quotes</h3>
+          <p>Sixteen lines about light, salt water and staying awake. One of them
+             is waiting at the top of the page, picked fresh each time you arrive.</p>
+          <span class="card-tag">16 quotes</span>
+        </a>
+
+        <a class="card card-link" href="project.html">
+          <span class="card-no">03</span>
+          <h3>Projects</h3>
+          <p>Five things I want to build next — a tide clock, a light with a
+             character, a keeper's log — each with what it needs and where it hurts.</p>
+          <span class="card-tag">5 ideas</span>
+        </a>
+
+        <a class="card card-link" href="machine.html">
+          <span class="card-no">04</span>
+          <h3>The Machine</h3>
+          <p>A box with one switch and one hand. You turn it on, it turns itself
+             off. Under it, a small game about not pressing things.</p>
+          <span class="card-tag">a digital toy</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ A night on the watch ============ -->
+  <section class="section section-tint" id="watch">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="eyebrow">One night on the watch</p>
+        <h2>21:00 to 02:00, roughly</h2>
+        <p class="sub">
+          Light does not keep itself. Before electricity, a keeper's night had
+          four fixed points in it, and they came round again every night for years.
+        </p>
+      </header>
+
+      <ol class="log">
+        <li>
+          <span class="log-week">21:00</span>
+          <div>
+            <h3>Light up</h3>
+            <p>Carry the lamp up the stairs, trim the wick, set it behind the lens
+               and write the hour in the log. From here until dawn, the light does
+               not go out for a visitor, for a meal, or for a ship that is already
+               safe.</p>
+          </div>
+        </li>
+        <li>
+          <span class="log-week">22:30</span>
+          <div>
+            <h3>Watch the flame</h3>
+            <p>A bad wick smokes, and smoke on the glass turns a beam into a blur.
+               Every four hours: trim, polish the lens with a soft cloth, and look
+               at the flame through the dark until your eyes stop watering.</p>
+          </div>
+        </li>
+        <li>
+          <span class="log-week">00:00</span>
+          <div>
+            <h3>Wind the clock</h3>
+            <p>The lens floats on mercury and is turned by a clockwork weight.
+               Let it run down and the light stops flashing — a still light in a
+               place where sailors expect a flash is worse than no light at all.</p>
+          </div>
+        </li>
+        <li>
+          <span class="log-week">02:00</span>
+          <div>
+            <h3>Write it down</h3>
+            <p>Weather, wind, visibility, every ship that passed, every strange
+               thing on the water. The log is the part of the night that survives
+               it. Nothing dramatic ever happens in a good log. That is the point.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ Every light has a name ============ -->
+  <section class="section" id="character">
+    <div class="wrap prose">
+      <h2>Every light has a name</h2>
+      <p>
+        At night a sailor cannot see which tower is which — so the tower tells
+        them with rhythm. On a chart it is written in a code that takes one line,
+        for example <strong>Fl(3) W 15s</strong>: three white flashes, then a pause,
+        and the whole pattern repeats every fifteen seconds. Count the flashes,
+        read the interval, and you know exactly where you are.
+      </p>
+      <ul>
+        <li><strong>Fixed</strong> — a steady light. The oldest kind, and the
+            easiest to mistake for a star.</li>
+        <li><strong>Flashing</strong> — dark for longer than it is bright, at a
+            fixed rhythm. One flash, one identity.</li>
+        <li><strong>Group flashing</strong> — two, three or four flashes together
+            and then a long darkness. The group is the fingerprint.</li>
+        <li><strong>Occulting</strong> — the mirror image of flashing: mostly lit,
+            briefly dark.</li>
+        <li><strong>Isophase</strong> — light and dark of exactly equal length,
+            which is much harder to fake from the deck of a moving boat.</li>
+      </ul>
+      <p>
+        Every one of those patterns is a timer, and a timer is about the easiest
+        thing in the world to write. That is why the light got its own entry in
+        the projects list: it is a rhythm, and a rhythm can be coded.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ One line, big ============ -->
+  <section class="section band">
+    <div class="wrap band-inner">
+      <p class="band-quote">“There are two ways of spreading light: to be the candle or the mirror that reflects it.”</p>
+      <p class="band-by">Edith Wharton</p>
+      <a class="btn btn-solid" href="quotes.html">Fifteen more →</a>
+    </div>
+  </section>
+
+</main>
+
+<div id="site-foot" class="site-foot"></div>
+
+<script src="nav.js"></script>
+</body>
+</html>

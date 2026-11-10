@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects · Keeper of the Light</title>
+<meta name="description" content="Five things I want to build next: a clock that shows the tide instead of the time, a light with a character, a keeper's log, a Morse lamp and a chart of one coast.">
+<meta name="theme-color" content="#0a0e17">
+<link rel="icon" href="favicon-32.png" sizes="32x32">
+<link rel="icon" href="favicon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="site-nav"></div>
+
+<main>
+
+  <section class="hero hero-short">
+    <div class="wrap">
+      <p class="eyebrow">Projects · five of them</p>
+      <h1 class="page-title">Five things I want to build</h1>
+      <p class="lede">
+        None of these exist yet. Each one is written down with what it needs and
+        where it will hurt, so that the next evening I sit down there is nothing
+        to decide first — only to start.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <ol class="project-list">
+
+        <li class="project">
+          <div class="project-head">
+            <span class="project-no">01</span>
+            <h2>A clock that shows the tide</h2>
+            <span class="diff" aria-label="Difficulty: easy">★☆☆</span>
+          </div>
+          <p class="project-lead">One round face, one hand, and the only thing it tells you is how much water is left.</p>
+          <p class="project-body">
+            High water, low water, and the slow six hours between them. The face
+            is a circle drawn in SVG with the twelve hours of a tide wrapped
+            round it once, so a single turn of the hand is a single tide. Read the
+            height of the hand and you know whether the rocks off the point are
+            walkable this evening.
+          </p>
+          <ul class="tags">
+            <li>SVG</li>
+            <li>Date</li>
+            <li>tide tables</li>
+          </ul>
+          <p class="project-hard"><strong>Where it hurts:</strong> a tide is not twelve hours. A lunar day is 24 hours 50 minutes, so a simple clock drifts almost an hour a day and is useless within a week unless the drift is built in from the start.</p>
+        </li>
+
+        <li class="project">
+          <div class="project-head">
+            <span class="project-no">02</span>
+            <h2>A light with a character</h2>
+            <span class="diff" aria-label="Difficulty: medium">★★☆</span>
+          </div>
+          <p class="project-lead">Type <code>Fl(3) W 15s</code> and watch the beam do exactly that, for as long as you leave it running.</p>
+          <p class="project-body">
+            Every lighthouse is identified by rhythm: three flashes, a pause, the
+            same again fifteen seconds later. This is a small page where you write
+            the pattern and the light obeys — a white flash for the bright part,
+            darkness for the gap, no clock graphics at all. The interesting part is
+            not the drawing, it is keeping perfect time while the browser is busy.
+          </p>
+          <ul class="tags">
+            <li>setTimeout</li>
+            <li>requestAnimationFrame</li>
+            <li>CSS animation</li>
+          </ul>
+          <p class="project-hard"><strong>Where it hurts:</strong> a chain of <code>setTimeout</code> calls slowly loses time, and a drifting lighthouse is a lie. The rhythm has to be computed from a single start time instead, one step at a time.</p>
+        </li>
+
+        <li class="project">
+          <div class="project-head">
+            <span class="project-no">03</span>
+            <h2>A keeper's log</h2>
+            <span class="diff" aria-label="Difficulty: easy">★☆☆</span>
+          </div>
+          <p class="project-lead">One line a night: weather, wind, and anything odd on the water.</p>
+          <p class="project-body">
+            A page that opens on tonight's empty line, saves what you write and
+            then draws the whole year as a ledger — dates down the left, one
+            sentence each. On paper it is the least dramatic document in the
+            world, which is exactly what makes it worth keeping. Export as plain
+            text, so the record still opens in thirty years.
+          </p>
+          <ul class="tags">
+            <li>localStorage</li>
+            <li>forms</li>
+            <li>tables</li>
+          </ul>
+          <p class="project-hard"><strong>Where it hurts:</strong> dates. A log written at 01:00 belongs to the night before, not to the calendar day, and getting that wrong quietly ruins the whole ledger.</p>
+        </li>
+
+        <li class="project">
+          <div class="project-head">
+            <span class="project-no">04</span>
+            <h2>A Morse lamp</h2>
+            <span class="diff" aria-label="Difficulty: medium">★★☆</span>
+          </div>
+          <p class="project-lead">Type a message, and a lamp on the screen blinks it out, one letter at a time.</p>
+          <p class="project-body">
+            Before radio, ships talked with a shutter and a lamp. This is the same
+            idea at one pixel's risk: a square that goes bright for a dot, stays
+            bright for a dash, and pauses for exactly as long as the code says. Show
+            the decoded line underneath as it goes, so you can read your own message
+            coming back at you.
+          </p>
+          <ul class="tags">
+            <li>timing</li>
+            <li>arrays</li>
+            <li>keyboard input</li>
+          </ul>
+          <p class="project-hard"><strong>Where it hurts:</strong> the whole alphabet has to be typed out by hand, and a single wrong gap turns <em>E</em> into <em>I</em> and <em>ship</em> into nonsense.</p>
+        </li>
+
+        <li class="project">
+          <div class="project-head">
+            <span class="project-no">05</span>
+            <h2>One coast, drawn from memory</h2>
+            <span class="diff" aria-label="Difficulty: harder">★★★</span>
+          </div>
+          <p class="project-lead">A chart of a coastline I know, with the lights marked in the right places.</p>
+          <p class="project-body">
+            Not a real map: a line drawn by hand, the sea filled in dark, the
+            towers marked as small amber dots, each one opening a note about a
+            night I remember. Laid out in SVG, hoverable, printable in black and
+            white, which is how charts were meant to be read anyway.
+          </p>
+          <ul class="tags">
+            <li>SVG</li>
+            <li>hover states</li>
+            <li>print styles</li>
+          </ul>
+          <p class="project-hard"><strong>Where it hurts:</strong> scale. Everything has to shrink together on a phone, and a fine hand-drawn line becomes a grey smear the moment it is scaled down.</p>
+        </li>
+
+      </ol>
+
+      <p class="foot-hint">
+        The next one I will actually build is <strong>02</strong> — it is the one
+        I would use, every night, for no practical reason at all.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<div id="site-foot" class="site-foot"></div>
+
+<script src="nav.js"></script>
+</body>
+</html>

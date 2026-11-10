@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quotes · Keeper of the Light</title>
+<meta name="description" content="Sixteen lines about light, salt water and staying awake — one of them is waiting at the top of the page, picked fresh every time you arrive.">
+<meta name="theme-color" content="#0a0e17">
+<link rel="icon" href="favicon-32.png" sizes="32x32">
+<link rel="icon" href="favicon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="site-nav"></div>
+
+<main>
+
+  <!-- ============ Spotlight: one random line ============ -->
+  <section class="hero hero-quote">
+    <div class="wrap">
+      <p class="eyebrow">Quotes · sixteen of them</p>
+      <h1 class="page-title">Lines worth keeping</h1>
+      <p class="lede">
+        Kept for the nights when the work is slow or the weather is bad.
+        The one below is chosen again every time you open this page —
+        the full list is underneath.
+      </p>
+
+      <figure class="spotlight" id="spotlight">
+        <span class="spotlight-no" id="spotlightNo">01 / 16</span>
+        <blockquote id="spotlightText" class="spotlight-text">Picking one…</blockquote>
+        <figcaption id="spotlightBy" class="spotlight-by"></figcaption>
+        <button class="btn btn-solid" id="shuffle" type="button">Another one</button>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ The whole list ============ -->
+  <section class="section section-tint">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="eyebrow">The whole list</p>
+        <h2>Sixteen, no filler</h2>
+        <p class="sub">
+          Where it says <em>proverb</em>, nobody remembers who said it first —
+          which is fine, because it survived anyway.
+        </p>
+      </header>
+
+      <noscript>
+        <p class="notice">This list is drawn by JavaScript. Turn the script on and reload to read it.</p>
+      </noscript>
+
+      <ol class="quote-grid" id="quoteGrid"></ol>
+    </div>
+  </section>
+
+</main>
+
+<div id="site-foot" class="site-foot"></div>
+
+<script src="nav.js"></script>
+<script>
+  /* The lines live in this one array: the spotlight at the top and the
+     list below are both drawn from it, so nothing is written twice. */
+  var QUOTES = [
+    { text: 'The sea, once it casts its spell, holds one in its net of wonder forever.',                 by: 'Jacques Yves Cousteau' },
+    { text: 'The heart of man is very much like the sea: it has its storms, it has its tides, and in its depths it has its pearls too.', by: 'Vincent van Gogh' },
+    { text: 'You cannot cross the sea merely by standing and staring at the water.',                     by: 'Rabindranath Tagore' },
+    { text: 'I must go down to the seas again, to the lonely sea and the sky.',                          by: 'John Masefield' },
+    { text: 'We must free ourselves of the hope that the sea will ever rest. We must learn to sail in high winds.', by: 'Aristotle Onassis' },
+    { text: 'The fishermen know that the sea is dangerous and the storm terrible, but they have never found these dangers sufficient reason for remaining ashore.', by: 'Vincent van Gogh' },
+    { text: 'The sea is everything. It covers seven tenths of the terrestrial globe. Its breath is pure and healthy.', by: 'Jules Verne' },
+    { text: 'One does not discover new lands without consenting to lose sight of the shore for a very long time.', by: 'André Gide' },
+    { text: 'There are two ways of spreading light: to be the candle or the mirror that reflects it.',   by: 'Edith Wharton' },
+    { text: 'We can easily forgive a child who is afraid of the dark; the real tragedy of life is when men are afraid of the light.', by: 'Plato' },
+    { text: 'The light shines in the darkness, and the darkness has not overcome it.',                   by: 'John 1:5' },
+    { text: 'Never a ship sails out of the bay but carries my heart as a stowaway.',                     by: 'Roselle Mercier Montgomery' },
+    { text: 'A smooth sea never made a skilled sailor.',                                                 by: 'proverb' },
+    { text: 'It is better to light a candle than curse the darkness.',                                   by: 'proverb' },
+    { text: 'The darkest hour is just before the dawn.',                                                 by: 'proverb' },
+    { text: 'Still waters run deep.',                                                                    by: 'proverb' }
+  ];
+
+  (function () {
+    'use strict';
+
+    var grid      = document.getElementById('quoteGrid');
+    var spotText  = document.getElementById('spotlightText');
+    var spotBy    = document.getElementById('spotlightBy');
+    var spotNo    = document.getElementById('spotlightNo');
+    var shuffle   = document.getElementById('shuffle');
+    var lastPicked = -1;
+    var pad = function (n) { return n < 10 ? '0' + n : String(n); };
+
+    /* draw the list */
+    QUOTES.forEach(function (q, i) {
+      var li = document.createElement('li');
+      li.className = 'quote-card';
+      li.innerHTML =
+        '<span class="quote-no">' + pad(i + 1) + '</span>' +
+        '<p class="quote-text">' + q.text + '</p>' +
+        '<p class="quote-by">— ' + q.by + '</p>';
+      grid.appendChild(li);
+    });
+
+    /* never hand out the same line twice in a row */
+    function pick() {
+      var i = Math.floor(Math.random() * QUOTES.length);
+      if (QUOTES.length > 1 && i === lastPicked) {
+        i = (i + 1) % QUOTES.length;
+      }
+      lastPicked = i;
+      return i;
+    }
+
+    function show(i) {
+      var q = QUOTES[i];
+      spotText.textContent = '\u201C' + q.text + '\u201D';
+      spotBy.textContent = '— ' + q.by;
+      spotNo.textContent = pad(i + 1) + ' / ' + QUOTES.length;
+      spotText.classList.remove('pop');
+      /* force a reflow so the animation replays every time */
+      void spotText.offsetWidth;
+      spotText.classList.add('pop');
+    }
+
+    shuffle.addEventListener('click', function () { show(pick()); });
+
+    show(Math.floor(Math.random() * QUOTES.length));
+  })();
+</script>
+</body>
+</html>

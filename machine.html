@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The machine · Keeper of the Light</title>
+<meta name="description" content="A box with one switch and one hand. You turn it on, it turns itself off. Underneath it, a small game about not pressing things for fifteen seconds.">
+<meta name="theme-color" content="#0a0e17">
+<link rel="icon" href="favicon-32.png" sizes="32x32">
+<link rel="icon" href="favicon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="site-nav"></div>
+
+<main>
+
+  <section class="hero hero-short">
+    <div class="wrap">
+      <p class="eyebrow">The machine · a digital toy</p>
+      <h1 class="page-title">You turn it on. It turns itself off.</h1>
+      <p class="lede">
+        A lighthouse keeper's whole job is to keep one lamp lit. So here is the
+        opposite: a box with a switch on the lid, a lamp on the front, and a hand
+        that comes out of the side to push the switch back down. It has one job,
+        and it is very serious about it.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ The machine itself ============ -->
+  <section class="section machine-section">
+    <div class="wrap machine-wrap">
+
+      <div class="machine" id="machine">
+        <div class="machine-deck">
+          <span class="machine-lamp" id="lamp" aria-hidden="true"></span>
+          <button class="machine-switch" id="mSwitch" type="button"
+                  aria-pressed="false" aria-label="Push the machine's switch up">
+            <span class="switch-lever"></span>
+          </button>
+        </div>
+
+        <div class="machine-body">
+          <div class="machine-slot" aria-hidden="true"></div>
+          <div class="machine-hand" id="hand" aria-hidden="true">
+            <span class="hand-arm"></span>
+            <span class="hand-finger"></span>
+          </div>
+          <span class="machine-plate">USELESS&nbsp;MACHINE</span>
+        </div>
+      </div>
+
+      <div class="machine-readout">
+        <p class="machine-status" id="mStatus" role="status">The switch is down and the lamp is dark. Push it and see.</p>
+        <p class="machine-count">Times it has switched itself off: <strong id="mCount">0</strong></p>
+        <button class="btn btn-ghost btn-sm" id="mReset" type="button">Reset the count</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ The game ============ -->
+  <section class="section section-tint" id="game">
+    <div class="wrap game-wrap">
+
+      <header class="section-head">
+        <p class="eyebrow">The game</p>
+        <h2>Don't press it</h2>
+        <p class="sub">
+          A keeper's real skill was sitting still next to a thing they were not
+          allowed to touch. Press once to light the lamp, then keep your hands off
+          it for fifteen seconds. Touch it once and you begin again. It will shake,
+          change its label and ask you to look at it. Ignore it.
+        </p>
+      </header>
+
+      <div class="game">
+        <div class="game-bar" role="progressbar" aria-label="Time held" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="gBar">
+          <i class="game-fill" id="gFill"></i>
+        </div>
+
+        <p class="game-clock" id="gClock">15.0</p>
+
+        <button class="no-btn" id="gBtn" type="button">Press to start</button>
+
+        <p class="game-status" id="gStatus" role="status">Fifteen seconds. That is all it asks.</p>
+        <p class="game-count">You have given in <strong id="gFails">0</strong> times.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ Why it exists ============ -->
+  <section class="section">
+    <div class="wrap prose">
+      <h2>Why this machine exists</h2>
+      <p>
+        Somebody really did describe one. In the 1950s Marvin Minsky imagined a
+        machine whose only function was to switch itself off; a version of it
+        ended up in AI lectures, and later on desks all over the world as a wooden
+        box with a lid and a hand. It is funny for exactly one reason: the machine
+        wins, every single time, and it never gets bored.
+      </p>
+      <p>
+        It is also a nice lesson in state. There are only five things this box can
+        be doing — off, on, reaching, pushing back, retracting — and if those five
+        are kept in order, the toy can never get stuck. Get the order wrong once
+        and you get a lamp that stays on, or a hand that never goes home.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<div id="site-foot" class="site-foot"></div>
+
+<script src="nav.js"></script>
+<script src="machine.js"></script>
+</body>
+</html>
